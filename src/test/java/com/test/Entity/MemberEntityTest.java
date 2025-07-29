@@ -17,18 +17,15 @@ public class MemberEntityTest {
 
     @Test
     void testSaveAndFindMember() {
-        // given
         Member member = new Member();
         member.setId("testUser");
         member.setPw("1234");
         member.setName("테스트");
         member.setPoint(1000L);
 
-        // when
         authRepository.save(member);
         Member found = authRepository.findById("testUser").orElse(null);
 
-        // then
         assertNotNull(found);
         assertEquals("testUser", found.getId());
         assertEquals("테스트", found.getName());
