@@ -39,7 +39,7 @@ public class SchedulerServiceImpl implements SchedulerService {
 								.build();
 		
 		CronTrigger ct = (CronTrigger) TriggerBuilder.newTrigger()   // 크론표현식
-								.withSchedule(CronScheduleBuilder.cronSchedule("*/2 * * * * ?"))  // 2초마다 실행
+								.withSchedule(CronScheduleBuilder.cronSchedule("0/20 * * * * ?"))  // 2초마다 실행
 							.forJob(jobDetail)
 							.build();
 							
