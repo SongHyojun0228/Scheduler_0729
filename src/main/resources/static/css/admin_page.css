@@ -1,0 +1,33 @@
+main {
+	width: 40rem;
+	padding: 2rem;
+	margin: 5rem auto;
+	border: 1px solid gray;
+}
+
+#header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	margin-bottom: 2rem;
+	font-weight: bold;	
+}
+
+#header button {
+	font-size: 1.2rem;
+}
+
+table {
+	width: 100%;
+    border-collapse: collapse;
+	margin-top: 2rem;
+}
+
+th, td {
+	border: 1px solid gray;
+	text-align: center;
+}
+
+#main_container {
+	margin-bottom: 4rem;
+}

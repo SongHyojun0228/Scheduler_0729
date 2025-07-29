@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+	<link rel="stylesheet" th:href="@{/css/auth.css}" />
+</head>
+<body>
+	<main>
+		<form action="/login" method="post">
+			<div>
+				ID : <input type="text" name="id" required>
+			</div>
+			<div>
+				PW : <input type="password" name="pw" required>
+			</div>
+			<button type="submit">로그인</button>
+			<a href="/auth/signup"><button type="button">회원가입</button></a>
+		</form>
+	</main>
+</body>
+</html>

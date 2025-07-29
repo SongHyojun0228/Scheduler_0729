@@ -1,0 +1,51 @@
+main {
+	width: 1082.4px;
+	padding: 2rem;
+	margin: 5rem auto;
+	border: 1px solid gray;
+}
+
+#header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	margin-bottom: 2rem;
+	font-weight: bold;	
+}
+
+#user_info {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: 0.5rem;
+}
+
+#header div {
+	display: flex;
+	gap: 0.4rem;
+}
+
+#choice_text {
+	font-size: 1.2rem;
+	font-weight: bold;	
+}
+
+#main_container {
+	display: flex;
+	gap: 0.2rem;
+	justify-content: space-between;
+	margin-top: 2rem;
+}
+
+.class {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#ad_container {
+	margin-top: 3rem;
+	margin-left: auto;
+	width: 230px;
+	border: 1px solid gray;
+}

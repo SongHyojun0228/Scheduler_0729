@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+	<link rel="stylesheet" th:href="@{/css/shared.css}" />
+	<link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+	<main>
+		<div id="header">
+			<h1>메인페이지</h1>
+			<div id="user_info">
+				<div>
+					<p th:text="${user.name} + '(' + ${user.id} + ')' + '님 안녕하세요.'"></p>
+					<a href="/logout"><button type="button">로그아웃</button></a>
+				</div>
+				<p th:text="'포인트 : ' + ${user.point}"></p>
+			</div>
+		</div>
+		
+		<p id="choice_text">구입할 컨텐츠를 선택하세요.</p>
+		
+		<div id="main_container">
+		    <div class="class">
+		        <img class="class_item" data-name="intro" data-price="100000" th:src="@{/image/Intro_350_408.png}">
+		        <p>100,000포인트</p>
+		    </div>    
+		    <div class="class">
+		        <img class="class_item" data-name="java" data-price="500000" th:src="@{/image/Java_350_408.png}">
+		        <p>500,000포인트</p>
+		    </div>
+		    <div class="class">
+		        <img class="class_item" data-name="C++" data-price="300000" th:src="@{/image/Cpp_350_408.png}">
+		        <p>300,000포인트</p>
+		    </div>        
+		</div>
+		
+		<div id="ad_container">
+			<p>&lt;광고&gt;</p>
+			<img id="ad_img" th:src="@{/image/korea_it.png}">
+		</div>
+	</main>
+	
+	<script>
+	document.querySelectorAll('.class_item').forEach(img => {
+	    img.addEventListener('click', () => {
+	        const courseName = img.dataset.name;
+	        const price = parseInt(img.dataset.price);
+
+	        fetch('/buy', {
+	            method: 'POST',
+	            headers: { 'Content-Type': 'application/json' },
+	            body: JSON.stringify({ courseName: courseName, price: price })
+	        })
+	        .then(response => response.json())
+	        .then(data => {
+	            if (data.error) {
+	                alert(data.error);
+	            } else {
+	                alert(`컨텐츠(${courseName})를 구입하였습니다.`);
+	                document.querySelector('#user_info p:last-child').textContent = '포인트 : ' + data.newPoint;
+	            }
+	        })
+	        .catch(err => {
+	            alert('구입 처리 중 오류가 발생했습니다.');
+	            console.error(err);
+	        });
+	    });
+	});
+	</script>
+
+	
+	<script>
+	document.getElementById('ad_img').addEventListener('click', () => {
+	    fetch('/ad/click', {
+	        method: 'POST',
+	        headers: {
+	            'Content-Type': 'application/json',
+	        }
+	    })
+	    .then(response => response.json())
+	    .then(data => {
+	        alert(data.points + '점이 적립되었습니다.');
+	        window.location.href = 'https://koreaisacademy.com';
+	    })
+	    .catch(err => {
+	        alert('포인트 적립 중 오류가 발생했습니다.');
+	        console.error(err);
+	    });
+	});
+	</script>
+	
+</body>
+</html>

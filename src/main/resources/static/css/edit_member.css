@@ -1,0 +1,22 @@
+main {
+	width: 40rem;
+	padding: 2rem;
+	margin: 5rem auto;
+	border: 1px solid gray;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+}
+
+form div {
+	width: 13rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+form button {
+	width: 13rem;
+}

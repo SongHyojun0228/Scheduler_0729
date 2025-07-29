@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+	<link rel="stylesheet" th:href="@{/css/shared.css}" />
+	<link rel="stylesheet" th:href="@{/css/auth.css}" />
+</head>
+<body>
+	<main>
+		<form action="/signup" method="post">
+			<div>
+				ID : <input type="text" name="id" required>
+			</div>
+			<div>
+				PW : <input type="password" name="pw" required>
+			</div>
+			<div>
+				Name : <input type="text" name="name" required>
+			</div>
+			<button type="submit">작성완료</button>
+		</form>
+	</main>
+</body>
+</html>

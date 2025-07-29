@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+	<link rel="stylesheet" th:href="@{/css/edit_member.css}" />
+</head>
+<body>
+	<main>
+		<h1>회원관리-수정관리자</h1>
+		
+		<form action="/edit/member" method="post">
+			<div>
+				ID <input type="text" name="id" readonly th:value="${editMember.id}">
+			</div>
+			<div>
+				PW <input type="text" name="pw" th:value="${editMember.pw}">
+			</div>
+			<div>
+				Name <input type="text" name="name" th:value="${editMember.name}">
+			</div>
+			<div>
+				point <input type="number" name="point" th:value="${editMember.point}">
+			</div>
+			<button type="submit">제출</button>
+		</form>
+	</main>
+</body>
+</html>
