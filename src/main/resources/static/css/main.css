@@ -20,9 +20,10 @@ main {
 	gap: 0.5rem;
 }
 
-#header div {
+#user_info div {
 	display: flex;
 	gap: 0.4rem;
+	align-items: center;
 }
 
 #choice_text {
